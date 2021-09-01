@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'Bye bye all events, users and bookings...'
 
+Booking.destroy_all
+Favourite.destroy_all
 Event.destroy_all
 User.destroy_all
-Booking.destroy_all
-Favourites.destroy_all
 
 puts 'Creating new events...'
 
@@ -39,9 +39,9 @@ Booking.create(user_id: user2.id, event_id: event4.id, ticket_amount: 1)
 
 puts 'Adding several favourites...'
 
-Favourites.create(user_id: user2.id, event_id: event2.id)
-Favourites.create(user_id: user3.id, event_id: event2.id)
-Favourites.create(user_id: user3.id, event_id: event1.id)
-Favourites.create(user_id: user4.id, event_id: event1.id)
+Favourite.create(user_id: user2.id, event_id: event2.id)
+Favourite.create(user_id: user3.id, event_id: event2.id)
+Favourite.create(user_id: user3.id, event_id: event1.id)
+Favourite.create(user_id: user4.id, event_id: event1.id)
 
-puts "#{Event.count} events, #{User.count} users, #{Booking.count} bookings and #{Favourites.count} favourites are added!"
+puts "#{Event.count} events, #{User.count} users, #{Booking.count} bookings and #{Favourite.count} favourites are added!"
