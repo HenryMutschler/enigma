@@ -9,8 +9,6 @@ puts 'Bye bye all events, users and bookings...'
 
 User.destroy_all
 Event.destroy_all
-# Booking.destroy_all
-# Favourites.destroy_all
 
 puts 'Creating new events...'
 

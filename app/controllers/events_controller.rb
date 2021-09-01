@@ -37,6 +37,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @favourite = Favourite.new
   end
 
   def destroy
