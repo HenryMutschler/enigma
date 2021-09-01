@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
 
   def index
+    @favourite = Favourite.new
     if params[:query].present?
       @events = Event.where(category: params[:query])
     else
@@ -54,4 +55,5 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:postcode, :restaurant_name, :start_time, :end_time, :category, :event_name, :event_descritpion, :price)
   end
+
 end
