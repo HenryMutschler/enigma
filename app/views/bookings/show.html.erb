@@ -4,9 +4,8 @@
 <p><%= @booking.ticket_amount %></p>
 
 <li class="booking">
-      <%= review.content %>
       <%= link_to "Remove",
-        booking_path(booking),
+        booking_path(@booking),
         method: :delete,
         data: { confirm: "Are you sure?" } %>
 </li>

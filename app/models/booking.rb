@@ -2,5 +2,5 @@ class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :event
 
-  validates :ticket_amount, presence: true
+  validates :ticket_amount, :date, presence: true
 end
