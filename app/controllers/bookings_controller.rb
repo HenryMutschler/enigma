@@ -1,4 +1,4 @@
-class BookingController < ApplicationController
+class BookingsController < ApplicationController
   def index
     @bookings = current_user.bookings
     if @bookings.empty?

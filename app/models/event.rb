@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
     has_many :bookings
-    has_many :favourites
+    has_many :favourites, dependent: :destroy
     CATEGORIES = ["Vegetarian", "Mediterranean", "Turkish", "Tapas", "Vegan", "Italian", "French", "British", "German"]
     validates :postcode, presence: true
     validates :restaurant_name, presence: true
