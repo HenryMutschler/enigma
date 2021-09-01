@@ -2,7 +2,11 @@ class EventsController < ApplicationController
   before_action :set_event, only: %i[show edit update destroy]
 
   def index
-    @events = Event.all
+    if params[:query].present?
+      @events = Event.where(category: params[:query])
+    else
+      @events = Event.all
+    end
   end
 
   def new
