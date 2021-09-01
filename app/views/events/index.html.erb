@@ -1,2 +1,20 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-8">
+      <%= form_tag events_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find an event"%>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+
+      <div>
+        <% @events.each do |event| %>
+          <h4><%= event.event_name %></h4>
+          <p><%= event.event_descritpion %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
