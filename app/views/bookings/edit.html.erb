@@ -1,2 +1,9 @@
 <h1>Booking#edit</h1>
 <p>Find me in app/views/booking/edit.html.erb</p>
+
+<%= form_for(@booking) do |f| %>
+  <%= f.input :start_time, as: :date, html5: true, label: 'Date' %>
+  <%= f.label :guests %>
+  <%= f.number_field :guest_amount %>
+  <%= f.submit %>
+<% end %>
