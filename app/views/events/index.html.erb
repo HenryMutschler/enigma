@@ -1,17 +1,11 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-sm-8">
-      <%= form_tag events_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find an event"%>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
-      <% end %>
+      <%= render "search_form" %>
 
       <div>
         <% @events.each do |event| %>
-          <h4><%= event.event_name %></h4>
+          <h4><%= link_to "#{event.event_name}", event_path(event) %></h4>
           <p><%= event.event_descritpion %></p>
           <% if event.favourites.exists?(user_id: current_user.id, event_id: event.id, id: event.favourites.ids) %>
             <%= link_to favourite_path(event_id: event.id, user_id: current_user.id, id: event.favourites.ids), method: :delete, remote: true, class:"like-btn" do %>
