@@ -1,5 +1,12 @@
 <div class="container">
   <div class='star-btn' id="favourite_<%= @event.id %>">
     <%= render "favourites/favourite", event: @event %>
+    <div class="event-context">
+      <h4><%= @event.event_name %></h4>
+      <h6><%= @event.category.capitalize %> <%= @event.postcode %></h6>
+      <p><%= @event.event_descritpion %></p>
+      <p> £ <%= @event.price %></p>
+      <%= link_to 'Book Now', new_event_booking_path(@event) %>
+    </div>
   </div>
 </div>
