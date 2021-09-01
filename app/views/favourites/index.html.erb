@@ -1,5 +1,9 @@
 <div class="container">
     <% @favourites.each do |favourite| %>
-    <%= favourite.event.event_name%>
-    <% end %>
+    Start time: <%= favourite.event.start_time.strftime("%b %e, %l:%M %p")%><br>
+    Category: <%= favourite.event.category%><br>
+    Event: <%= favourite.event.event_name%><br>
+    Description: <%= favourite.event.event_descritpion%><br>
+    Price: <%= favourite.event.price%>£<br>
+  <% end %>
 </div>
