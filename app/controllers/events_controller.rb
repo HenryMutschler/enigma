@@ -4,17 +4,19 @@ class EventsController < ApplicationController
   def index
     @favourite = Favourite.new
 
-    if params[:query].present?
-      query = "%#{params[:query]}%"
-      categories = Event.categories.keys.select { |key| key.include?(params[:query]) }
+    if params[:query_event].present?
+      query = "%#{params[:query_event]}%"
+      categories = Event.categories.keys.select { |key| key.include?(params[:query_event]) }
 
-      if params[:query] =~ /\A[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}\Z/i
-        geocoder = Geocoder.search(params[:query], params: { countrycodes: 'gb' }).first
+      @events = Event.where(category: categories)
+      @events.where(Event.arel_table[:event_name].matches(query))
+    elsif params[:query_geo].present?
+
+      if params[:query_geo] =~ /\A[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}\Z/i
+        geocoder = Geocoder.search(params[:query_geo], params: { city: 'london', countrycodes: 'gb' }).first
       end
 
-      @events = geocoder ? Event.near(geocoder.coordinates, 3) : Event.none
-      @events = @events.or(@events.where(category: categories))
-                       .or(@events.where(Event.arel_table[:event_name].matches(query)))
+      @events = geocoder ? Event.near(geocoder.coordinates, 2) : Event.all
     else
       @events = Event.all
     end
