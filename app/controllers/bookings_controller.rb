@@ -19,16 +19,17 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @booking = Booking.new
     @event = Event.find(params[:event_id])
-    @booking = @event.bookings.new
   end
 
   def create
     @event = Event.find(params[:event_id])
-    @booking = current_user.bookings.new(booking_params)
+    @booking = Booking.new(booking_params)
     @booking.event = @event
+    @booking.user = current_user
     if @booking.save
-      redirect_to booking_path(current_user), alert: 'You created a new Booking! We will send you an Email 24 hours before the event starts, with the postcode. We look forward to surprising you!'
+      redirect_to booking_path(@booking), alert: 'You have successfully created a booking. We will give you the exact location 24h prior to the beginning of your mystery.'
     else
       render :new
     end
