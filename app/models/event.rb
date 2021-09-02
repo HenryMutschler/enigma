@@ -2,6 +2,9 @@ class Event < ApplicationRecord
   has_many :bookings
   has_many :favourites
 
+  geocoded_by :postcode, params: { countrycodes: 'gb' }
+  after_validation :geocode, if: :will_save_change_to_postcode?
+
   enum category: { american: 0,
                    bar: 1,
                    bbq: 2,
