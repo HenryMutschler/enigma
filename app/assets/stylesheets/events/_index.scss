@@ -1,6 +1,6 @@
 .card-trip {
     overflow: hidden;
-    background: white;
+    background: darkblue;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
   }
   
@@ -8,19 +8,30 @@
     height: 200px;
     width: 100%;
     object-fit: cover;
+    position: relative;
+  }
+
+  .card-trip-infos a {
+      color: white;
   }
   
   .card-trip h2 {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     margin: 0;
+
   }
   
   .card-trip p {
     font-size: 12px;
     opacity: .7;
     margin: 0;
-    color: black;
+    color: white;
+    width: 332px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 10px 0 0 0;
   }
   
   
@@ -30,6 +41,8 @@
     justify-content: space-between;
     align-items: flex-end;
     position: relative;
+    text-align: center;
+    height: 87px;
   }
   
   .card-trip-infos .card-trip-user {
@@ -52,3 +65,21 @@
     padding: 0px;
     margin: 0px;
 }
+
+.card-trip{
+    margin-bottom: 16px;
+    border-radius: 16px;
+}
+
+.card-trip h3 {
+    font-size: 20px;
+    font-weight: bolder;
+    color: white;
+    position: absolute;
+    bottom: 85px;
+    right: 20px;
+  }
+
+  .writing-card{
+      height:100%
+  }
