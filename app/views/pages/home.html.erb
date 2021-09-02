@@ -1,9 +1,13 @@
-<div class="container">
-  <h1>Pages#home</h1>
-  <p>This is Home/Landing Page.
-   Guests/Users can browse & search for events,
-   also sign up or sign in to view their bookings status and setting.</p>
-
-  <%= render 'events/search_form' %>
-
+<div class="banner">
+  <div class="background-image">
+    <%= image_tag asset_path('homepagebackground.jpg') %>
+  </div>
+  <div class="header">
+    <h1><strong>This is Enigma</strong></h1>
+    <h4><strong>For you to have a unique and mysterious dining experience.</strong></h4>
+    <p><strong>Proud supporters of local restaurants.</strong></p>
+    <div class="search-bar">
+      <%= render 'events/search_form' %>
+    </div>
+  </div>
 </div>
