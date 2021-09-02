@@ -1,7 +1,14 @@
-<%= form_tag events_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find an event/ Postcode"%>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
+<div class="col">
+  <%= form_tag events_path, method: :get do %>
+    <%= text_field_tag :query_event,
+      params[:query_event],
+      class: "form-control",
+      placeholder: "Find an event"%>
+
+    <%= text_field_tag :query_geo,
+      params[:query_geo],
+      class: "form-control",
+      placeholder: "Postcode or Location"%>
+    <%= submit_tag "SURPRISE ME", class: "btn btn-primary" %>
+  <% end %>
+</div>
