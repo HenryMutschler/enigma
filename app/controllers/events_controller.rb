@@ -12,9 +12,13 @@ class EventsController < ApplicationController
         geocoder = Geocoder.search(params[:query], params: { countrycodes: 'gb' }).first
       end
 
-      @events = geocoder ? Event.near(geocoder.coordinates, 3) : Event.none
-      @events = @events.or(@events.where(category: categories))
-                       .or(@events.where(Event.arel_table[:event_name].matches(query)))
+      @events = if geocoder
+                  event = Event.near(geocoder.coordinates, 3)
+                  event.or(event.where(category: categories))
+                else
+                  Event.where(category: categories)
+                end
+      @events.where(Event.arel_table[:event_name].matches(query))
     else
       @events = Event.all
     end
