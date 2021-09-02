@@ -3,8 +3,18 @@ class EventsController < ApplicationController
 
   def index
     @favourite = Favourite.new
+
     if params[:query].present?
-      @events = Event.where(category: params[:query])
+      query = "%#{params[:query]}%"
+      categories = Event.categories.keys.select { |key| key.include?(params[:query]) }
+
+      if params[:query] =~ /\A[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}\Z/i
+        geocoder = Geocoder.search(params[:query], params: { countrycodes: 'gb' }).first
+      end
+
+      @events = geocoder ? Event.near(geocoder.coordinates, 3) : Event.none
+      @events = @events.or(@events.where(category: categories))
+                       .or(@events.where(Event.arel_table[:event_name].matches(query)))
     else
       @events = Event.all
     end
