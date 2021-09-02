@@ -1,5 +1,6 @@
-<h1>Booking#new</h1>
-<p>Find me in app/views/booking/new.html.erb</p>
+<div class="container">
+  <h1>Booking#new</h1>
+  <p>Find me in app/views/booking/new.html.erb</p>
 
 <div class="form-inputs">
   <%= simple_form_for [ @booking ] do |f| %>
@@ -7,5 +8,5 @@
     <%= f.label :tickets %>
     <%= f.number_field :ticket_amount %>
     <%= f.submit "Create booking", class: "btn btn-primary" %>
-  <% end %>
+  <%= end %>
 </div>
