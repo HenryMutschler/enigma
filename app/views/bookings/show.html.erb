@@ -3,9 +3,11 @@
 <h2><%= @booking.event %></h2>
 <p><%= @booking.ticket_amount %></p>
 
-<li class="booking">
-      <%= link_to "Remove",
-        booking_path(@booking),
-        method: :delete,
-        data: { confirm: "Are you sure?" } %>
-</li>
+<ul>
+  <p class="booking">
+        <%= link_to "Remove",
+         booking_path(@booking),
+          method: :delete,
+          data: { confirm: "Are you sure?" } %>
+  </p>
+</ul>
