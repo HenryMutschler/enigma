@@ -1,0 +1,23 @@
+.mapboxgl-popup {
+  max-width:  200px;
+  font-size:  small;
+}
+
+.mapboxgl-popup-content {
+  text-align:   center;
+  font-family:  'Eczar', serif;
+  color:        $black;
+}
+
+.mapboxgl-popup-content h6 {
+  font-family:  'Eczar', serif;
+  text-align:   start;
+}
+
+.marker {
+  background-image: url('circle-map-logo.png');
+  background-size:  cover;
+  object-position:  center;
+  width:            45vh;
+  height:           45vh;
+}
