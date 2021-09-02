@@ -3,13 +3,9 @@
 
 <div class="form-inputs">
   <%= simple_form_for [ @booking ] do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
     <%= f.input :start_time, as: :date, html5: true, label: 'Date' %>
-    <%= f.label :guests %>
-    <%= f.number_field :guest_amount %>
+    <%= f.label :tickets %>
+    <%= f.number_field :ticket_amount %>
     <%= f.submit "Create booking", class: "btn btn-primary" %>
   <% end %>
 </div>
