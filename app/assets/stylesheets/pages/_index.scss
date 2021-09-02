@@ -1,2 +1,14 @@
 // Import page-specific CSS files here.
 @import "home";
+
+.event-cards {
+  display: flex;
+  justify-content: space-around;
+  align-content: space-around;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.events {
+  width: 400px;
+}
