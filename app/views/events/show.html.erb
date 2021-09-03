@@ -1,19 +1,10 @@
 <div class="container">
-  <div class="background-image">
-    <%= image_tag asset_path('gradient-background.png') %>
-  </div>
-  <div class='star-btn' id="favourite_<%= @event.id %>">
-    <%= render "favourites/favourite", event: @event %>
-    <div class="event-context">
-      <h4><%= @event.event_name %></h4>
-      <h6><%= @event.category.capitalize %> <%= @event.postcode %></h6>
-      <p><%= @event.event_descritpion %></p>
-      <p>£ <%= @event.price %></p>
-      <%= link_to 'Book Now', new_event_booking_path(@event), class:'btn btn-primary'%>
-    </div>
     <br>
       <div class="event-context">
         <h4><%= @event.event_name %></h4><br>
+    <div class='star-btn' id="favourite_<%= @event.id %>">
+      <%= render "favourites/favourite", event: @event %>
+    </div>
         <p><%= @event.event_descritpion %></p><br>
         <p>£ <%= @event.price %></p><br>
         <%= link_to 'Book Now', new_event_booking_path(@event), class:'btn btn-warning'%><br>
