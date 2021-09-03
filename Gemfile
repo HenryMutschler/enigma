@@ -30,6 +30,8 @@ gem 'redis', '~> 4.0'
 gem 'autoprefixer-rails', '10.2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+# For uploading impage
+gem 'cloudinary', '~> 1.16.0'
 
 gem 'devise'
 # For maximum sercuity, keep token in .env and ignored by Github
