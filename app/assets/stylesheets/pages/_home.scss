@@ -1,11 +1,9 @@
 // Specific CSS for your home-page
 body {
   width: 100%;
-  object-position: center;
   text-align: center;
   background-size: cover;
   background-position: 0 0;
-  align-content: center;
   position: relative;
 }
 
@@ -30,23 +28,21 @@ img {
 }
 
 h1 {
+  padding-top: 24px;
   font-size: 60px;
-  margin-left: 200px;
   position: absolute;
   z-index: 0;
 }
 
 h4 {
-  margin-left: 200px;
-  padding-top: 100px;
   position: absolute;
   z-index: 0;
 }
 
 .search-bar {
+  text-align: center;
   width: 600px;
-  margin-top: 220px;
-  margin-left: 435px;
+  margin-top: 40px;
   position: absolute;
   z-index: 0;
 }
@@ -57,8 +53,6 @@ h4 {
 }
 
 p {
-  margin-left: 200px;
-  padding-top: 140px;
   position: absolute;
   z-index: 0;
 }
