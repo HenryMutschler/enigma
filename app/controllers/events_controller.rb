@@ -22,6 +22,16 @@ class EventsController < ApplicationController
     end
   end
 
+  def show
+    @event = Event.find(params[:id])
+    @favourite = Favourite.new
+    @markers = [{
+      lat: @event.latitude,
+      lng: @event.longitude,
+      info_window: render_to_string(partial: "info_window", local: { event: @event })
+      }]
+  end
+
   def new
     @event = Event.new
   end
@@ -46,11 +56,6 @@ class EventsController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def show
-    @event = Event.find(params[:id])
-    @favourite = Favourite.new
   end
 
   def destroy
