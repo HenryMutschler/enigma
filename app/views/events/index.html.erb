@@ -14,7 +14,7 @@
             <% @events.each do |event| %>
               <div class='entire-card'>
                 <div class="card-trip">
-                  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+                  <%= image_tag "#{event.image_url}" %>
                     <div class="card-trip-infos">
                       <div class="writing-card">
                           <h2><%= link_to "#{event.event_name}", event_path(event) %></h2>
