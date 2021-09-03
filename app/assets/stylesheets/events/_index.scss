@@ -44,6 +44,7 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
     margin: 10px 0 0 0;
+    padding: 0;
   }
 
 
@@ -66,14 +67,12 @@ body {
   }
 
 #star-on{
-    position: relative;
     bottom: 150px;
     padding: 0px;
     margin: 0px;
 }
 
 #star-off{
-    position: relative;
     bottom: 150px;
     padding: 0px;
     margin: 0px;
