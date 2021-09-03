@@ -13,6 +13,7 @@ body {
     overflow: hidden;
     background: darkblue;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    margin-top: 20px;
   }
 
   .card-trip > img {
@@ -54,6 +55,7 @@ body {
     position: relative;
     text-align: center;
     height: 87px;
+    background-color: black;
   }
 
   .card-trip-infos .card-trip-user {
@@ -65,14 +67,14 @@ body {
 
 #star-on{
     position: relative;
-    bottom: 170px;
+    bottom: 150px;
     padding: 0px;
     margin: 0px;
 }
 
 #star-off{
     position: relative;
-    bottom: 170px;
+    bottom: 150px;
     padding: 0px;
     margin: 0px;
 }

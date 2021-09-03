@@ -1,8 +1,11 @@
-<h1>Booking#show</h1>
-
-<h2><%= @booking.event %></h2>
-<p><%= @booking.ticket_amount %></p>
-
+<div class="show-booking">
+<h1>CONGRATULATIONS! You have booked the following event:</h1>
+<div class="booking-detail">
+<h2><%= @booking.event.event_name %></h2>
+<p><%= @booking.ticket_amount %> tickets</p>
+</div>
+<h4> We can't wait to surpirse you </h4>
+<h4> Remember to check you emails 24 hours before your booking, as we will tell you the exact location then :) </h4>
 <ul>
   <p class="booking">
         <%= link_to "Remove",
@@ -11,3 +14,6 @@
           data: { confirm: "Are you sure?" } %>
   </p>
 </ul>
+</div>
+
+<%= link_to "See all my favourites", favourites_path, class: "btn btn-warning" %>
