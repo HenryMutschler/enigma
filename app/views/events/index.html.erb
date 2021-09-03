@@ -1,6 +1,5 @@
 
       <%# <div class="search-bar">
-        <%= render "search_form" %>
       <%# </div> %>
 
 <div class="container events-index-container">
@@ -9,6 +8,7 @@
       <div class="background-image">
         <%= image_tag asset_path('gradient-background.png') %>
       </div>
+        <%= render "search_form" %>
         <div class>
           <% if @events.any? %>
             <% @events.each do |event| %>
