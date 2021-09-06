@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   has_many :bookings
   has_many :favourites
+  belongs_to :user # for organizer
 
   geocoded_by :postcode, params: { countrycodes: 'gb' }
   after_validation :geocode, if: :will_save_change_to_postcode?
