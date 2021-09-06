@@ -1,0 +1,5 @@
+meta_product_name: "Enigma"
+meta_title: "Enigma - For you to have a unique and mysterious dining experience."
+meta_description: "Enjoy a mysterious and exciting dining experience with Enigma Dining. Discover small and local restaurants or be surprised by special venues we may have booked for you."
+meta_image: "enigmalogo.png" # should exist in `app/assets/images/`
+twitter_account: "@LeWagonLondon"   # required for Twitter Cards
