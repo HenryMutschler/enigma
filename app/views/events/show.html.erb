@@ -1,6 +1,6 @@
 <% content_for :meta_title, "#{@event.event_name} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @event.event_descritpion %>
-<% content_for :meta_image, image_path(@event.image_url) %>
+<% content_for :meta_image, asset_path(@event.image_url) %>
 
 
 <div class="container">
