@@ -1,11 +1,25 @@
 .booking-detail {
-    border: 1px solid white;
-    border-radius: 16px;
-    margin: 16px;
-    padding-top: 16px;
-    padding-bottom: 16px;
+  border: 2px solid #3D52D5;
+  border-radius: 16px;
+  margin: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  height: 140px;
 }
 
 .show-booking h1 {
     font-size: 32px;
+}
+
+h1 {
+  margin-top: 16px;
+}
+
+.remove-booking {
+  margin-left: 380px;
+}
+
+h4 {
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
