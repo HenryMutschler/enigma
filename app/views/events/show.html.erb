@@ -1,14 +1,18 @@
 <div class="container">
   <br>
   <div class="event-context">
-    <h4><%= @event.event_name %></h4><br>
+    <h4><%= @event.event_name %></h4>
     <div class='star-btn' id="favourite_<%= @event.id %>">
       <%= render "favourites/favourite", event: @event %>
     </div>
     <p><%= @event.event_descritpion %></p>
     <p>£ <%= @event.price %></p>
-    <p><%= pluralize @event.reviews.size, "reviews" %></p>
-    <%= link_to 'Book Now', new_event_booking_path(@event), class:'btn btn-warning'%><br>
+
+    <p>This is an event organized by <%= link_to "#{@event.user.first_name}", review_path(@event.user)%>
+        <%#= image_tag "#{@event.user.picture_url}" %>
+      <%= pluralize @event.user.reviews.size, "reviews"%></p>
+
+    <%= link_to 'Book Now', new_event_booking_path(@event), class:'btn btn-warning'%>
   </div>
   <br>
   <div id="map"
@@ -20,8 +24,8 @@
     <% if @event.user.reviews.blank? %>
       Be the first to leave a review for <%= @event.user.first_name %>
     <% else %>
-      <% @event.reviews.each do |review| %>
-        <p><%= review.cotent %></p>
+      <% @event.user.reviews.each do |review| %>
+        <p><%= review.content %> by <%= review.booking.user.first_name %></p>
       <% end %>
     <% end %>
   </div>

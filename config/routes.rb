@@ -5,10 +5,12 @@ Rails.application.routes.draw do
   resources :events do
     resources :bookings, only: %i[new create]
   end
-  resources :bookings, only: %i[index show edit update]
+  resources :bookings, only: %i[index show edit update] do
+    resource :review, only: %i[new create]
+  end
 
   resources :favourites, only: %i[index create destroy]
-  resources :reviews, only: %i[index new create]
+  resources :reviews, only: %i[show]
 
   root to: 'pages#home'
 end
