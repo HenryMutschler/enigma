@@ -17,7 +17,7 @@
                   <h2><%= link_to "#{event.event_name}", event_path(event) %></h2>
                   <p><%= event.event_descritpion %></p>
                 </div>
-                <h3 class="card-trip-pricing"><%= event.price %>£</h3>
+                <h3 class="card-trip-pricing">£<%= event.price %></h3>
                 <div class="card-trip-user" id="stars">
                   <% if event.favourites.exists?(user_id: current_user.id, event_id: event.id, id: event.favourites.ids) %>
                     <%= link_to favourite_path(event_id: event.id, user_id: current_user.id, id: event.favourites.ids), method: :delete, remote: true, class:"like-btn" do %>

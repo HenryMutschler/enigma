@@ -1,13 +1,15 @@
-<div class="favourites-container col-sm-12 col-bg-6">
+<div class="container">
   <% if @favourites.exists? %>
-    <% @favourites.each do |favourite| %>
-      Start time: <%= favourite.event.start_time.strftime("%b %e, %l:%M %p")%><br>
-      Category: <%= favourite.event.category%><br>
-      Event: <%= favourite.event.event_name%><br>
-      Description: <%= favourite.event.event_descritpion%><br>
-      Price: £<%= favourite.event.price%><br>
-    <% end %>
-  <% else %>
+      <% @favourites.each do |favourite| %>
+        <div class="favourites-container col-sm-12 col-bg-6">
+          <h4><%= favourite.event.event_name%><br></h4>
+          <h6><%= favourite.event.category.capitalize%><br></h6>
+          <h6><%= favourite.event.event_descritpion%><br></h6>
+          <h6><%= favourite.event.start_time.strftime("%b %e - %l:%M %p")%><br></h6>
+          <h6>£<%= favourite.event.price%><br></h6>
+        </div>
+      <% end %>
+    <% else %>
     <h4>You have no favourites :(</h4>
-  <% end %>
+    <% end %>
 </div>
