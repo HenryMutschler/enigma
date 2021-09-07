@@ -11,10 +11,10 @@ class FavouritesController < ApplicationController
   end
 
   def destroy
-      @event = Event.find(params[:event_id])
-      @favourite = Favourite.find_by(user_id: current_user.id, event_id: @event.id)
-      @favourite.destroy
-     redirect_back(fallback_location: root_path)
+    @event = Event.find(params[:event_id])
+    @favourite = Favourite.find_by(user_id: current_user.id, event_id: @event.id)
+    @favourite.destroy
+    redirect_back(fallback_location: root_path)
   end
 
   private
@@ -22,5 +22,4 @@ class FavouritesController < ApplicationController
   def favourite_params
     params.require(:favourite).permit(:event_id, :user_id)
   end
-
 end
