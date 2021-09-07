@@ -34,7 +34,6 @@ h1 {
   font-size: 60px;
 }
 
-
 .search-bar {
   text-align: center;
   width: 600px;
@@ -45,4 +44,14 @@ h1 {
 
 .header {
   margin-top: -700px;
+}
+
+a {
+  color: $pink;
+  font-weight: 900;
+}
+
+a:hover {
+  color: $white;
+  text-decoration: none;
 }

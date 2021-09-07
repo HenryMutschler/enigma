@@ -24,6 +24,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    # @reviews = @event.user.reviews
     @favourite = Favourite.new
     @markers = [{
       lat: @event.latitude,

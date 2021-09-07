@@ -1,0 +1,35 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  align-items: center;
+  margin-bottom: 8px;
+  background: rgb(0, 0, 0);
+  padding: 24px 16px;
+  border: 1px solid rgb(235,235,235);
+}
+
+.list-item {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  align-items: center;
+  margin-bottom: 8px;
+  background: rgb(0, 0, 0);
+  padding: 8px 16px;
+  border: 1px solid rgb(235,235,235);
+  list-style-type: none;
+}
+
+.list .list-content {
+  flex-grow: 1;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: start;
+}
+
+.list .list-content a:hover {
+  text-decoration: none;
+  font-weight: bolder;
+  color: #AB87FF;
+}

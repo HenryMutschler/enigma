@@ -1,12 +1,14 @@
 <div class='container'>
-  <h1>Booking#index</h1>
-  <p>Find me in app/views/booking/index.html.erb</p>
-
   <h1>Your Bookings</h1>
 
   <ul>
     <% @bookings.each do |booking| %>
-      <li><%= booking.event %></li>
+      <% if booking.event.start_time > Time.current %>
+        <li><%= booking.event.event_name %>  <%= booking.event.start_time.strftime('%d/%m/%Y %H:%M') %></li>
+      <% else %>
+        <li><%= booking.event.event_name %>  <%= booking.event.start_time.strftime('%d/%m/%Y %H:%M') %>
+        <%= link_to 'Write a review', new_booking_review_path(booking) %> </p></li>
+      <% end %>
     <% end %>
   </ul>
 </div>
