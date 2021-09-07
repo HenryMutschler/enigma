@@ -5,7 +5,9 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.postcode.subject
   #
-  def postcode(@user, @event)
+  def postcode(user, event)
+    @user = user
+    @event = event
     @greeting = "Hi"
 
     mail(to: @user.email, subject: 'The postcode to your mystery has been revealed')
