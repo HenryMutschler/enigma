@@ -1,22 +1,21 @@
 <div class="col-sm-12 col-bg-6">
-<div class="search-bars">
-  <div>
-    <%= form_tag events_path, method: :get do %>
-      <%= text_field_tag :query_event,
-        params[:query_event],
+  <div class="search-bars">
+    <div>
+      <%= form_tag events_path, method: :get do %>
+        <%= text_field_tag :query_event,
+          params[:query_event],
+          class: "form-control",
+          placeholder: "Find an event"%>
+    </div>
+    <div>
+      <%= text_field_tag :query_geo,
+        params[:query_geo],
         class: "form-control",
-        placeholder: "Find an event"%>
-  </div>
-  <div>
-    <%= text_field_tag :query_geo,
-      params[:query_geo],
-      class: "form-control",
-      placeholder: "Postcode or Location"%>
-  </div>
+        placeholder: "Postcode or Location"%>
+    </div>
   </div>
   <div class="submit-button">
     <%= submit_tag "SURPRISE ME", class: "btn btn-primary", id: "home-button"%>
-
   </div>
   <% end %>
 </div>
