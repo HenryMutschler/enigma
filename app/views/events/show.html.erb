@@ -5,9 +5,9 @@
 
 <div class="container">
   <div class="event-context">
-    <%= link_to events_path do %>
-      <i class="fas fa-angle-left fa-3x"></i>
-    <% end %>
+    <div class="btn-back"><%= link_to events_path do %>
+      <i class="far fa-chevron-left fa-2x"></i>
+    <% end %></div>
     <h4><%= @event.event_name %></h4>
     <div class='star-btn' id="favourite_<%= @event.id %>">
       <%= render "favourites/favourite", event: @event %>
