@@ -17,18 +17,18 @@
   height: 50px;
   margin-left: 16px;
   margin-top: 8px;
+  position: fixed;
 }
 
-.nav-item {
-  margin-left: -10px;
-  margin-right: 40px;
+a .login {
+  border: 2px solid pink;
+  border-radius: 20px;
+  width: 140px;
 }
 
-// .navbar-collapse {
-//   display: flex !important;
-//   flex-basis: auto;
-// }
-
-// .dropdown-toggle {
-//   margin-right: auto;
-// }
+.navbar-nav {
+  text-align: center;
+  // position: fixed;
+  display: flex;
+  flex-direction: row;
+}

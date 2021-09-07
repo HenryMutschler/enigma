@@ -30,8 +30,7 @@ class BookingsController < ApplicationController
     @booking.event = @event
     @booking.user = current_user
     if @booking.save
-      mail = UserMailer.postcode(@user, @event)
-      mail.deliver_now
+      UserMailer.postcode(@user, @event).deliver_later
       redirect_to booking_path(@booking), alert: 'You have successfully created a booking. We will give you the exact location 24h prior to the beginning of your mystery.'
     else
       render :new
