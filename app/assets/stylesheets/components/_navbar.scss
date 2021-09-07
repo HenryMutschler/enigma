@@ -3,9 +3,10 @@
   position: fixed;
   background: none;
   border: none;
-  width: 100%;
-  z-index: 100;
+  // width: 100%;
+  z-index: 0;
   bottom: 0%;
+  padding: 0%;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -20,15 +21,26 @@
   position: fixed;
 }
 
-a .login {
-  border: 2px solid pink;
-  border-radius: 20px;
-  width: 140px;
-}
+// a .login {
+//   border: 2px solid pink;
+//   border-radius: 20px;
+//   width: 140px;
+// }
 
 .navbar-nav {
-  text-align: center;
-  // position: fixed;
   display: flex;
+  align-items: center;
+  justify-content: space-around;
   flex-direction: row;
+  margin: 0 0 0 0!important;
+  background-color: white;
+  // float: left;
+}
+
+ li {
+  font-size: 18px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 12px;
+  padding-top: 12px;
 }
