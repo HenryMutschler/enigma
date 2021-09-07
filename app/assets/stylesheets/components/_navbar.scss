@@ -3,7 +3,7 @@
   position: fixed;
   background: none;
   border: none;
-  // width: 100%;
+  width: 100%;
   z-index: 0;
   bottom: 0%;
   padding: 0%;
@@ -33,7 +33,7 @@
   justify-content: space-around;
   flex-direction: row;
   margin: 0 0 0 0!important;
-  background-color: white;
+  background-color: #1c1d21;
   // float: left;
 }
 
@@ -41,6 +41,6 @@
   font-size: 18px;
   padding-left: 8px;
   padding-right: 8px;
-  padding-bottom: 12px;
-  padding-top: 12px;
+  padding-bottom: 16px;
+  padding-top: 16px;
 }
