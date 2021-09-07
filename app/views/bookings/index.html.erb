@@ -1,15 +1,16 @@
 <div class='container'>
-  <p>Find me in app/views/booking/index.html.erb</p>
-
   <h3>Your Bookings</h3>
 
   <ul>
     <% @bookings.each do |booking| %>
-      <% if booking.event.start_time > Time.current %>
-        <li><%= booking.event.event_name %>  <%= booking.event.start_time.strftime('%d/%m/%Y %H:%M') %></li>
+      <% if booking.event.start_time < Time.current && booking.review.present? == true %>
+        <li><%= booking.event.event_name %> | <%= booking.event.start_time.strftime('%d/%m/%Y %H:%M') %><br>
+        <%= link_to 'See your review', review_path(booking.review.user) %></li>
+      <% elsif booking.event.start_time < Time.current && booking.review.present? == false  %>
+        <li><%= booking.event.event_name %> | <%= booking.event.start_time.strftime('%d/%m/%Y %H:%M') %><br>
+        <%= link_to 'Write a review', new_booking_review_path(booking) %></li>
       <% else %>
-        <li><%= booking.event.event_name %>  <%= booking.event.start_time.strftime('%d/%m/%Y %H:%M') %>
-        <%= link_to 'Write a review', new_booking_review_path(booking) %> </p></li>
+        <li><%= booking.event.event_name %> | <%= booking.event.start_time.strftime('%d/%m/%Y %H:%M') %></li>
       <% end %>
     <% end %>
   </ul>
