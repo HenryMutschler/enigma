@@ -2,24 +2,34 @@
   <%= link_to "/", class: "navbar-brand" do %>
     <%= image_tag "enigmalogo.png" %>
   <% end %>
-  <%# <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> %>
-    <%# <span class="navbar-toggler-icon"></span> %>
-  <%# </button> %>
+
   <div class="collapse navbar-collapse d-block" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto col-sm-12 col-bg-6">
       <% if user_signed_in? %>
-        <li class="item active">
-          <%= link_to "Home", "#" %>
+        <li class="nav-item active">
+          <%= link_to events_path do %>
+            <i class="fas fa-home fa-2x"></i>
+          <% end %>
         </li>
-        <li class="item">
-          <%= link_to "Bookings", "#" %>
+        <li class="nav-item">
+          <%= link_to bookings_path do %>
+            <i class="fas fa-ticket-alt fa-2x"></i>
+          <% end %>
         </li>
-        <li class="item">
-          <%= link_to "Favourites", "#" %>
+        <li class="nav-item">
+          <%# <div class="btn-navbar"> %>
+            <%= link_to favourites_path do %>
+              <i class="far fa-heart fa-2x"></i>
+            <% end %>
+          <%# </div> %>
         </li>
-        <li class="item">
-          <%= link_to "Profile", "#" %>
+        <li class="nav-item">
+          <%= link_to current_user do %>
+             <i class="far fa-user fa-2x"></i>
+          <% end %>
         </li>
+
+
         <%# <li class="nav-item dropdown"> %>
         <%# <div class="profile-image"> %>
           <%# <%= image_tag "#{current_user.picture_url}", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
