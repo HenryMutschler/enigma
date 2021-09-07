@@ -10,14 +10,11 @@ class EventsController < ApplicationController
 
       @events = Event.where(category: categories)
       @events = Event.where(Event.arel_table[:event_name].matches(query))
-
     elsif params[:query_geo].present?
-
       # if params[:query_geo] =~ /\A[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}\Z/i
       geocoder = Geocoder.search(params[:query_geo], params: { city: 'london', countrycodes: 'gb' }).first
       # end
       @events = geocoder ? Event.near(geocoder.coordinates, 2) : Event.all
-
     elsif params[:query_event].present?
       query = "%#{params[:query_event]}%"
       categories = Event.categories.keys.select { |key| key.include?(params[:query_event]) }
@@ -27,7 +24,6 @@ class EventsController < ApplicationController
     else
       @events = Event.all
     end
-    console
   end
 
   def show
@@ -81,5 +77,4 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:postcode, :restaurant_name, :start_time, :end_time, :category, :event_name, :event_descritpion, :price)
   end
-
 end
