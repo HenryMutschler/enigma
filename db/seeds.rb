@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'Bye bye all events, users and bookings...'
 
+Review.destroy_all
+Booking.destroy_all
+Favourite.destroy_all
 User.destroy_all
 Event.destroy_all
 
