@@ -1,21 +1,19 @@
 <div class="show-booking">
-<h1>CONGRATULATIONS! You have booked the following event:</h1>
-<div class="booking-detail">
-  <h2><%= @booking.event.event_name %></h2>
-  <p><%= @booking.ticket_amount %> tickets</p>
-  <ul>
-    <p class="remove-booking">
-          <%= link_to "Cancel",
-          booking_path(@booking),
-            method: :delete,
-            data: { confirm: "Are you sure?" } %>
-    </p>
-  </ul>
-</div>
-<h4> We can't wait to surprise you! </h4>
-<h4> Remember to check you emails 24 hours before your booking. You'll find out more then :) </h4>
-</div>
+  <h1>CONGRATULATIONS!<br>You have booked the following event:</h1>
+  <div class="booking-detail">
+    <h2><%= @booking.event.event_name %></h2>
+    <% if @booking.ticket_amount == 1 %>
+      <h3><%= @booking.ticket_amount %> ticket</h3>
+    <% else %>
+      <h3><%= @booking.ticket_amount %> tickets</h3>
+    <% end %>
+  </div>
 
-<div class="submit-button">
-  <%= link_to "My favourites", favourites_path, class: "btn btn-primary" %>
+  <h4> We can't wait to surprise you! </h4>
+  <h5> Remember to check you emails 24 hours before your booking. You'll find out more then 😎</h5>
+  <br>
+  <br>
+  <div class="submit-button">
+    <%= link_to "My favourites", favourites_path, class: "btn btn-primary" %>
+  </div>
 </div>
