@@ -9,10 +9,6 @@
       <i class="far fa-chevron-left fa-2x"></i>
     <% end %></div>
     <h4><%= @event.event_name %></h4>
-    <div class='star-btn' id="favourite_<%= @event.id %>">
-      <%= render "favourites/favourite", event: @event %>
-    </div>
-
     <p><%= @event.event_descritpion %></p>
     <p>£ <%= @event.price %></p>
 
