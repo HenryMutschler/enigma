@@ -1,0 +1,64 @@
+input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    height: 71px;
+  }
+
+#new-booking {
+    font-size: 36px;
+  }
+  
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+  
+  .number-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    i{
+        display: inline;
+
+    }
+  }
+  
+  .number-input,
+  .number-input * {
+    box-sizing: border-box;
+    margin-top: 50px;
+  }
+  
+  .number-input button {
+    outline:none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    margin: 0;
+    position: relative;
+  }
+
+  .plus {
+      color: white;
+  }
+
+  .minus {
+      color: white;
+      border: 1px solid white ;
+  }
+
+  .booking-h4{
+      margin-top: 70px;
+      font-size: 30px;
+  }
+
+  #button-new-booking{
+      width: 300px;
+  }
