@@ -7,6 +7,7 @@ body {
   background-position: 0 0;
   position: relative;
   margin-top: 70px;
+  margin-bottom: 70px;
 }
 
 img {
@@ -32,7 +33,7 @@ img {
 
 h1 {
   padding-top: 24px;
-  font-size: 60px;
+  font-size: 54px;
 }
 
 .search-bar {
@@ -69,4 +70,16 @@ a {
 a:hover {
   color: $white;
   text-decoration: none;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 20px;
 }
