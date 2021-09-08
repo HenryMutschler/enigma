@@ -1,7 +1,7 @@
 <div class="col-sm-12 col-bg-6">
-      <%= form_tag events_path, method: :get do %>
-  <div class="search-bars">
-    <div>
+  <%= form_tag events_path, method: :get do %>
+    <div class="search-bars">
+      <div>
         <%= text_field_tag :query_event,
           params[:query_event],
           class: "form-control",

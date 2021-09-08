@@ -10,7 +10,7 @@
                 <%= image_tag "#{favourite.event.image_url}" %>
                   <div class="card-trip-infos">
                     <h3 class="card-trip-pricing">£<%= favourite.event.price %></h3>
-                    <h4 class="card-trip-date"><%= favourite.event.start_time.strftime("%b %e, %l:%M %p") %></h4>
+                    <h4 class="card-trip-date"><%= favourite.event.start_time.strftime("%d %b %Y %I:%M %P") %></h4>
                     <div class="writing-card">
                       <h6><%= link_to "#{favourite.event.event_name}", event_path(favourite.event) %></h6>
                         <% if favourite.event.favourites.exists?(user_id: current_user.id, event_id: favourite.event.id, id: favourite.id) %>

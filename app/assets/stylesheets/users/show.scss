@@ -9,7 +9,7 @@
 }
 
 .list-item {
-  // display: flex;
+  display: flex;
   flex-wrap: wrap;
   flex-grow: 1;
   align-items: center;
@@ -22,15 +22,30 @@
   font-size: 16px;
 }
 
-// .list .list-content {
-//   flex-grow: 1;
-//   margin-left: 20px;
-//   margin-right: 20px;
-//   text-align: start;
-// }
+.list-content {
+  flex-grow: 1;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: start;
+  color: aqua;
+}
 
 .list .list-content a:hover {
   text-decoration: none;
   font-weight: bolder;
   color: $pink;
+}
+
+#whiteline {
+  display: block;
+  margin-before: 0.5em;
+  margin-after: 0.5em;
+  margin-start: auto;
+  margin-end: auto;
+  overflow: hidden;
+  border-style: inset;
+  border-width: 10px!important;
+  border: 3;
+  color: $white;
+  background-color: $white;
 }
