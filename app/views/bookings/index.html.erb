@@ -1,16 +1,18 @@
 <div class='container'>
   <h3>Your Bookings</h3>
 
-  <ul>
+  <ul class="list">
     <% @bookings.each do |booking| %>
       <% if booking.event.start_time < Time.current && booking.review.present? == true %>
-        <li><%= booking.event.event_name %> | <%= booking.event.start_time.strftime('%d/%m/%Y %H:%M') %><br>
-        <%= link_to 'See your review', review_path(booking.review.user) %></li>
+        <li class="list-item"><%= booking.event.event_name %><br><%= booking.event.start_time.strftime("%d %b %Y, %I:%M %P") %>
+        <div><%= link_to 'See your review', review_path(booking.review.user) %></div></li>
       <% elsif booking.event.start_time < Time.current && booking.review.present? == false %>
-        <li><%= booking.event.event_name %> | <%= booking.event.start_time.strftime('%d/%m/%Y %H:%M') %><br>
-        <%= link_to 'Write a review', new_booking_review_path(booking) %></li>
+        <li class="list-item"><%= booking.event.event_name %><br>
+        <%= booking.event.start_time.strftime("%d %b %Y, %I:%M %P") %>
+        <div><%= link_to 'Write a review', new_booking_review_path(booking) %></div></li>
       <% else %>
-        <li><%= booking.event.event_name %> | <%= booking.event.start_time.strftime('%d/%m/%Y %H:%M') %></li>
+        <li class="list-item"><%= booking.event.event_name %><br>
+        <%= booking.event.start_time.strftime("%d %b %Y, %I:%M %P") %></li>
       <% end %>
     <% end %>
   </ul>
