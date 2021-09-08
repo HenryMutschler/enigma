@@ -4,26 +4,21 @@ class EventsController < ApplicationController
   def index
     @favourite = Favourite.new
 
-    if params[:query_event].present? && params[:query_geo].present?
-      query = "%#{params[:query_event]}%"
-      categories = Event.categories.keys.select { |key| key.include?(params[:query_event]) }
+    # if params[:query_geo] =~ /\A[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}\Z/i
+    geocoder = if params[:query_geo].present?
+                 Geocoder.search(params[:query_geo], params: { city: 'london', countrycodes: 'gb' })
+                         .first
+               end
 
-      @events = Event.where(category: categories)
-      @events = Event.where(Event.arel_table[:event_name].matches(query))
-    elsif params[:query_geo].present?
-      # if params[:query_geo] =~ /\A[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}\Z/i
-      geocoder = Geocoder.search(params[:query_geo], params: { city: 'london', countrycodes: 'gb' }).first
-      # end
-      @events = geocoder ? Event.near(geocoder.coordinates, 2) : Event.all
-    elsif params[:query_event].present?
-      query = "%#{params[:query_event]}%"
-      categories = Event.categories.keys.select { |key| key.include?(params[:query_event]) }
+    @events = geocoder ? Event.near(geocoder.coordinates, 2) : Event.all
 
-      @events = Event.where(category: categories)
-      @events = Event.where(Event.arel_table[:event_name].matches(query))
-    else
-      @events = Event.all
-    end
+    return unless params[:query_event].present?
+
+    query = "%#{params[:query_event]}%"
+    categories = Event.categories.keys.select { |key| key.downcase.include?(params[:query_event].downcase) }
+
+    @events = @events.where(category: categories)
+                     .or(@events.where(Event.arel_table[:event_name].matches(query)))
   end
 
   def show
