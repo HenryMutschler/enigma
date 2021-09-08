@@ -9,17 +9,17 @@
               <div class="card-trip">
                 <%= image_tag "#{favourite.event.image_url}" %>
                   <div class="card-trip-infos">
-                    <h3 class="card-trip-pricing">£<%= favourite.event.price %></h3>
+                    <h4 class="card-trip-pricing">£<%= favourite.event.price %></h4>
                     <h4 class="card-trip-date"><%= favourite.event.start_time.strftime("%d %b %Y %I:%M %P") %></h4>
                     <div class="writing-card">
                       <h6><%= link_to "#{favourite.event.event_name}", event_path(favourite.event) %></h6>
                         <% if favourite.event.favourites.exists?(user_id: current_user.id, event_id: favourite.event.id, id: favourite.id) %>
                           <%= link_to favourite_path(event_id: favourite.event.id, user_id: current_user.id, id: favourite.id), method: :delete, remote: true, class:"like-btn" do %>
-                            <i class="fas fa-heart fa-3x" id= "star-indeed"></i>
+                            <i class="fas fa-heart fa-2x" id= "star-indeed"></i>
                           <% end %>
                         <% else %>
                         <%= link_to favourite_path(event_id: event.id, user_id: current_user.id, id: event.favourites.ids, from: "index"), method: :post, remote: true, class:"like-btn" do %>
-                        <i class="fas fa-heart fa-3x" id="star-off" ></i>
+                        <i class="fas fa-heart fa-2x" id="star-off" ></i>
                         <% end %>
                         <% end %>
                     </div>
