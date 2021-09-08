@@ -1,67 +1,67 @@
 input[type="number"] {
-    -webkit-appearance: textfield;
-    -moz-appearance: textfield;
-    appearance: textfield;
-    height: 50px;
-  }
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  height: 71px;
+}
 
 #new-booking {
-    font-size: 24px;
+  font-size: 36px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.number-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i{
+      display: inline;
+
   }
+}
 
-  input[type=number]::-webkit-inner-spin-button,
-  input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-  }
+.number-input,
+.number-input * {
+  box-sizing: border-box;
+  margin-top: 50px;
+}
 
-  .number-input {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.number-input button {
+  outline:none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  margin: 0;
+  position: relative;
+}
 
-    i{
-        display: inline;
+.plus {
+    color: white;
+}
 
-    }
-  }
-
-  .number-input,
-  .number-input * {
-    box-sizing: border-box;
-    margin-top: 24px;
-  }
-
-  .number-input button {
-    outline:none;
-    -webkit-appearance: none;
-    background-color: transparent;
-    border: none;
-    align-items: center;
-    justify-content: center;
-    width: 200px;
-    // height: 30px;
-    cursor: pointer;
-    margin: 0;
-    position: relative;
-  }
-
-  .plus {
-      color: white;
-  }
-
-  .minus {
+.minus {
     color: white;
     border: 1px solid white ;
-  }
+}
 
-  .booking-h4{
-    margin-top: 100px;
+.booking-h4{
+    margin-top: 70px;
     font-size: 30px;
-  }
+}
 
-  #button-new-booking{
+#button-new-booking{
     width: 200px;
     padding: 10px;
     // font-size: 20px;
     border-radius: 30px;
-  }
+}

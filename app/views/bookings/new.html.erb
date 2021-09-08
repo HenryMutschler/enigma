@@ -1,13 +1,12 @@
- <div class="container">
+ <div class="container"> 
  <h4 class="booking-h4">How many tickets do you want to purchase for this event?</h4>
   <div class="number-input">
     <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus">
       <span> <i class="fa fa-minus fa-2x"></i> </span>
     </button>
     <%= simple_form_for [ @event, @booking ] do |f| %>
-
     <%= f.number_field :ticket_amount, class: "form-control quantity", value: 1, min: 1, id:"new-booking" %>
-    <%= f.submit "CREATE BOOKING", class: "btn btn-primary", id: "button-new-booking" %>
+    <%= f.submit "Create booking", class: "btn btn-primary", id: "button-new-booking" %>
     <% end %>
     <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus">
     <i class="fa fa-plus fa-2x"></i>
