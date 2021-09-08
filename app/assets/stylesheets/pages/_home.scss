@@ -2,11 +2,11 @@
 
 body {
   width: 100%;
-  height: calc(100vh - 80px);
   text-align: center;
   background-size: cover;
   background-position: 0 0;
   position: relative;
+  margin-top: 70px;
 }
 
 img {
@@ -44,9 +44,7 @@ h1 {
 }
 
 .header {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  margin-top: -800px;
 }
 
 .mobile-nav {
