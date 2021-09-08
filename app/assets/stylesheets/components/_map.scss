@@ -15,7 +15,7 @@
 }
 
 .marker {
-  background-image: url('<%= asset_path("circle-map-logo.png") %>');
+  background-image: url("circle-map-logo.png");
   background-size:  cover;
   object-position:  center;
   width:            45vh;
