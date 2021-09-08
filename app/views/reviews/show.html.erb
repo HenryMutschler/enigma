@@ -1,8 +1,8 @@
 <div class="container">
-  <h3>Review for <%= @user.first_name %> review show page</h3>
+  <h3>Review for <%= @booking.event.user.first_name %> review show page</h3>
 
   <ul class="list">
-    <% @user.reviews.each do |review| %>
+    <% @booking.event.user.reviews.each do |review| %>
       <li class="list-item">
       <%= image_tag review.booking.user.picture_url, class: "avatar" %>
         <%# <div class="list-content"> %>

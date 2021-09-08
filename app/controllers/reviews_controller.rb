@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to bookings_path
     else
-      render :show
+      render :show, alert: 'At least 5 letters~'
     end
   end
 
