@@ -119,3 +119,13 @@ background-color: $black;
   border-radius: 20px;
   padding: 5px;
 }
+
+.gradient-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
