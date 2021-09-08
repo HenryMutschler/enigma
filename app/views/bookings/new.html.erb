@@ -6,7 +6,7 @@
     </button>
     <%= simple_form_for [ @event, @booking ] do |f| %>
 
-    <%= f.number_field :ticket_amount, class: "form-control quantity", name:"quantity", value: 1, min: 1, id:"new-booking" %>
+    <%= f.number_field :ticket_amount, class: "form-control quantity", value: 1, min: 1, id:"new-booking" %>
     <%= f.submit "CREATE BOOKING", class: "btn btn-primary", id: "button-new-booking" %>
     <% end %>
     <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus">

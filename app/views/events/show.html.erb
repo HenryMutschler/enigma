@@ -9,12 +9,6 @@
     <div class="btn-back"><%= link_to events_path do %>
       <i class="far fa-chevron-left fa-2x"></i>
     <% end %></div>
-    <h2><%= @event.event_name %></h2>
-    <h2>---------</h2>
-    <h5><%= @event.event_descritpion %></h5>
-    <h5>£ <%= @event.price %></h5>
-
-    <h5>This is an event organized by <%= link_to "#{@event.user.first_name}", review_path(@event.user)%>
 
     <h4><%= @event.event_name %></h4>
     <p><%= @event.event_descritpion.truncate(120, separator: ' ') %></p>
