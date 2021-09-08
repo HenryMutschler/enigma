@@ -11,17 +11,10 @@
     <% end %></div>
     <h2><%= @event.event_name %></h2>
     <h2>---------</h2>
-    <h5><%= @event.event_descritpion %></h5>
-    <h5>£ <%= @event.price %></h5>
-
-    <h5>This is an event organized by <%= link_to "#{@event.user.first_name}", review_path(@event.user)%>
-
-    <h4><%= @event.event_name %></h4>
-    <p><%= @event.event_descritpion.truncate(120, separator: ' ') %></p>
+    <p><%= @event.event_descritpion %></p>
     <p>£ <%= @event.price %></p>
 
-    <p>This is an event organized by <%= link_to "#{@event.user.first_name}", review_path(@event.user)%><br>
-
+    <h5>This is an event organized by <%= link_to "#{@event.user.first_name}", review_path(@event.user)%>
         <%#= image_tag "#{@event.user.picture_url}" %>
       <%= pluralize @event.user.reviews.size, "reviews"%></h5>
 
