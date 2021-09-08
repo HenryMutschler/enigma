@@ -1,15 +1,36 @@
 <div class="container">
-  <% if @favourites.exists? %>
-      <% @favourites.each do |favourite| %>
-        <div class="favourites-container col-sm-12 col-bg-6">
-          <h4><%= favourite.event.event_name%><br></h4>
-          <h6><%= favourite.event.category.capitalize%><br></h6>
-          <h6><%= favourite.event.event_descritpion%><br></h6>
-          <h6><%= favourite.event.start_time.strftime("%b %e - %l:%M %p")%><br></h6>
-          <h6>£<%= favourite.event.price%><br></h6>
+  <div class="background-image">
+    <%= image_tag asset_path('gradient-background.png'), class: 'gradient-background' %>
+  </div>
+    <% if @favourites.exists? %>
+        <div class="justify-content-center">
+          <% @favourites.each do |favourite| %>
+            <div class='entire-card'>
+              <div class="card-trip">
+                <%= image_tag "#{favourite.event.image_url}" %>
+                  <div class="card-trip-infos">
+                    <h3 class="card-trip-pricing">£<%= favourite.event.price %></h3>
+                    <h4 class="card-trip-date"><%= favourite.event.start_time.strftime("%b %e, %l:%M %p") %></h4>
+                    <div class="writing-card">
+                      <h6><%= link_to "#{favourite.event.event_name}", event_path(favourite.event) %></h6>
+                        <% if favourite.event.favourites.exists?(user_id: current_user.id, event_id: favourite.event.id, id: favourite.id) %>
+                          <%= link_to favourite_path(event_id: favourite.event.id, user_id: current_user.id, id: favourite.id), method: :delete, remote: true, class:"like-btn" do %>
+                            <i class="fas fa-heart fa-3x" id= "star-indeed"></i>
+                          <% end %>
+                        <% else %>
+                          <%= form_for(favourite) do |f| %>
+                          <%= f.hidden_field :user_id, value: current_user.id %>
+                          <%= f.hidden_field :event_id, value: favourite.event.id %>
+                          <%= f.button :submit, class: 'favourite-star' do %>
+                            <i class="fas fa-heart fa-3x" id= "star-off"></i>
+                            <% end %>
+                          <% end %>
+                        <% end %>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          <% end %>
         </div>
-      <% end %>
-    <% else %>
-    <h4>You have no favourites :(</h4>
     <% end %>
 </div>
