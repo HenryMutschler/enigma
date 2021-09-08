@@ -1,7 +1,6 @@
 class ReviewsController < ApplicationController
   def show
-    @user = User.find(params[:id])
-    @bookings = current_user.bookings
+    @review = Review.find(params[:id])
   end
 
   def new

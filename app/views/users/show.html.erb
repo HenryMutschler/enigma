@@ -1,9 +1,9 @@
 <div class="container">
-
-  <h1>Users#show</h1>
+  <h1></h1>
   <div><%= image_tag "#{current_user.picture_url}", id: "avatar-center" %>
     </div>
     <div>
+      <%= link_to "⭐️⭐️⭐️⭐️⭐️", user_path %><br>
       <%= link_to "✎ Edit Profile", edit_user_registration_path %><br>
       <%= link_to "⫸ Sign Out", destroy_user_session_path %><br>
     </div>
@@ -11,8 +11,10 @@
     <ul class="list">
       <% current_user.reviews.each do |review| %>
         <li class="list-item">
-        <%= review.booking.event.start_time.strftime('%Y/%m/%d') %>
-        <%= review.booking.event.event_name %><br>
+        <div class="list-content"><%= review.booking.event.event_name %><br>
+          <%= review.booking.event.start_time.strftime('%d %b %Y') %>  |
+          <%= review.booking.event.user.first_name %></div>
+        <p>_________________________</p>
         <%= review.content %></li>
       <% end %>
     </ul>
