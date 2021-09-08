@@ -1,11 +1,12 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = current_user.bookings
-    if @bookings.empty?
-      redirect_to events_path, alert: 'You do not have any bookings yet.'
-    else
-      @bookings
-    end
+    @bookings = current_user.bookings.includes(:event).joins(:event)
+                            .order('events.start_time': :desc)
+                            .group_by do |booking|
+                              booking.event.start_time > Time.current ? 'upcoming' : 'past'
+                            end
+
+    redirect_to events_path, alert: 'You do not have any bookings yet.' if @bookings.empty?
   end
 
   def show
