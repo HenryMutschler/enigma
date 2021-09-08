@@ -18,12 +18,12 @@
                   <h6><%= link_to "#{event.event_name}", event_path(event) %></h6>
                   <div class="card-trip-user">
                       <% if event.favourites.exists?(user_id: current_user.id, event_id: event.id, id: event.favourites.ids) %>
-                        <%= link_to favourite_path(event_id: event.id, user_id: current_user.id, id: event.favourites.ids, from: "index"), method: :delete, remote: true, class:"like-btn" do %>
-                        <i class="fas fa-heart fa-3x" id="star-on" ></i>
+                        <%= link_to favourite_path(event_id: event.id, id: event.favourites.ids, from: "index"), method: :delete, remote: true, class:"like-btn" do %>
+                          <i class="fas fa-heart fa-3x" id="star-on" ></i>
                         <% end %>
                       <% else %>
-                        <%= link_to favourite_path(event_id: event.id, user_id: current_user.id, id: event.favourites.ids, from: "index"), method: :post, remote: true, class:"like-btn" do %>
-                        <i class="fas fa-heart fa-3x" id="star-off" ></i>
+                        <%= link_to event_favourites_path(event, from: "index"), method: :post, remote: true, class:"like-btn" do %>
+                          <i class="fas fa-heart fa-3x" id="star-off" ></i>
                         <% end %>
                       <% end %>
                   </div>
