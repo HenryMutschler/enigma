@@ -12,7 +12,7 @@
       <% current_user.reviews.each do |review| %>
         <li class="list-item">
         <div class="list-content"><%= review.booking.event.event_name %><br>
-          <%= review.booking.event.start_time.strftime('%d %b %Y') %>  |
+          <%= review.booking.event.start_time.strftime('%d %b %Y') %> |
           <%= review.booking.event.user.first_name %></div>
         <p>_________________________</p>
         <%= review.content %></li>
