@@ -1,18 +1,18 @@
 .favourite-star {
-    background-color: transparent;
-    border-color: transparent;
+  background-color: transparent;
+  border-color: transparent;
 }
 
 #favourite_1{
-    display: flex;
+  display: flex;
 }
 
 #star-no{
-    color: rgba(255, 255, 255, 0.623);
+  color: rgba(255, 255, 255, 0.623);
 }
 
 #star-yes{
-    color: $pink;
+  color: $pink;
 }
 
 .favourites-container {

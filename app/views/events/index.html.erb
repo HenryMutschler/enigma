@@ -13,7 +13,7 @@
           <div class="card-trip">
             <%= image_tag "#{event.image_url}" %>
               <div class="card-trip-infos">
-                <h3 class="card-trip-pricing">£<%= event.price %></h3>
+                <h4 class="card-trip-pricing">£<%= event.price %></h4>
                 <h4 class="card-trip-date"><%= event.start_time.strftime("%d %b %Y %I:%M %P") %></h4>
                 <div class="writing-card">
                   <h6><%= link_to "#{event.event_name}", event_path(event) %></h6>
