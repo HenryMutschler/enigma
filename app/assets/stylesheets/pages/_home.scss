@@ -2,6 +2,7 @@
 
 body {
   width: 100%;
+  height: calc(100vh - 80px);
   text-align: center;
   background-size: cover;
   background-position: 0 0;
@@ -13,7 +14,6 @@ img {
   height: 100%;
   background-size: cover;
   background-position: center;
-  position: absolute;
   left: 0;
   top: 0;
 }
@@ -44,7 +44,9 @@ h1 {
 }
 
 .header {
-  margin-top: -700px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .mobile-nav {
