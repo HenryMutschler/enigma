@@ -9,28 +9,24 @@
 
     <% if @events.any? %>
       <% @events.each do |event| %>
-        <div class='entire-card'>
+        <div class='entire-card' id="star-<%=event.id%>">
           <div class="card-trip">
             <%= image_tag "#{event.image_url}" %>
               <div class="card-trip-infos">
                 <h3 class="card-trip-pricing">£<%= event.price %></h3>
-                <h4 class="card-trip-date"><%= event.start_time.strftime("%b %e, %l:%M %p") %></h4>
+                <h4 class="card-trip-date"><%= event.start_time.strftime("%d %b %Y %I:%M %P") %></h4>
                 <div class="writing-card">
                   <h6><%= link_to "#{event.event_name}", event_path(event) %></h6>
-                  <div class="card-trip-user" id="stars">
-                  <% if event.favourites.exists?(user_id: current_user.id, event_id: event.id, id: event.favourites.ids) %>
-                    <%= link_to favourite_path(event_id: event.id, user_id: current_user.id, id: event.favourites.ids), method: :delete, remote: true, class:"like-btn" do %>
-                      <i class="fas fa-heart fa-3x" id= "star-on"></i>
-                    <% end %>
-                  <% else %>
-                    <%= form_for(@favourite) do |f| %>
-                      <%= f.hidden_field :user_id, value: current_user.id %>
-                      <%= f.hidden_field :event_id, value: event.id %>
-                        <%= f.button :submit, class: 'favourite-star' do %>
-                          <i class="fas fa-heart fa-3x" id= "star-off"></i>
+                  <div class="card-trip-user">
+                      <% if event.favourites.exists?(user_id: current_user.id, event_id: event.id, id: event.favourites.ids) %>
+                        <%= link_to favourite_path(event_id: event.id, user_id: current_user.id, id: event.favourites.ids, from: "index"), method: :delete, remote: true, class:"like-btn" do %>
+                        <i class="fas fa-heart fa-3x" id="star-on" ></i>
                         <% end %>
-                    <% end %>
-                  <% end %>
+                      <% else %>
+                        <%= link_to favourite_path(event_id: event.id, user_id: current_user.id, id: event.favourites.ids, from: "index"), method: :post, remote: true, class:"like-btn" do %>
+                        <i class="fas fa-heart fa-3x" id="star-off" ></i>
+                        <% end %>
+                      <% end %>
                   </div>
                 </div>
               </div>

@@ -1,7 +1,6 @@
 class ReviewsController < ApplicationController
   def show
-    @user = User.find(params[:id])
-    @bookings = current_user.bookings
+    @review = Review.find(params[:id])
   end
 
   def new
@@ -17,7 +16,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to bookings_path
     else
-      render :show
+      render :show, alert: 'At least 5 letters~'
     end
   end
 
