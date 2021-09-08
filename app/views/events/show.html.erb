@@ -8,13 +8,14 @@
     <div class="btn-back"><%= link_to events_path do %>
       <i class="far fa-chevron-left fa-2x"></i>
     <% end %></div>
-    <h4><%= @event.event_name %></h4>
-    <p><%= @event.event_descritpion %></p>
-    <p>£ <%= @event.price %></p>
+    <h2><%= @event.event_name %></h2>
+    <h2>---------</h2>
+    <h5><%= @event.event_descritpion %></h5>
+    <h5>£ <%= @event.price %></h5>
 
-    <p>This is an event organized by <%= link_to "#{@event.user.first_name}", review_path(@event.user)%>
+    <h5>This is an event organized by <%= link_to "#{@event.user.first_name}", review_path(@event.user)%>
         <%#= image_tag "#{@event.user.picture_url}" %>
-      <%= pluralize @event.user.reviews.size, "reviews"%></p>
+      <%= pluralize @event.user.reviews.size, "reviews"%></h5>
 
     <%= link_to 'Book Now', new_event_booking_path(@event), class:'btn btn-primary'%>
   </div>
