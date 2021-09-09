@@ -11,7 +11,7 @@ class Event < ApplicationRecord
                    bbq: 2,
                    british: 3,
                    chinese: 4,
-                   cooktails_bar: 5,
+                   cocktail_bar: 5,
                    modern_european: 6,
                    french: 7,
                    german: 8,
