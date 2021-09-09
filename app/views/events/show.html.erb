@@ -19,10 +19,9 @@
         <p> See their <%= link_to "#{@event.user.reviews.size} review here", review_path(@event.user)%><br> 
       <% else %>
         <p> See their <%= link_to "#{@event.user.reviews.size} reviews here", review_path(@event.user)%><br>
-      <% end %>
-
-        <%#= image_tag "#{@event.user.picture_url}" %>
-    <%= link_to 'Book Now', new_event_booking_path(@event), class:'btn btn-primary'%>
+    <div>
+      <%= link_to 'BOOK NOW', new_event_booking_path(@event), class:'btn btn-primary'%>
+    </div>
   </div>
     <%# <div class="btn-back"><%= link_to events_path do %>
       <%# <i class="far fa-chevron-left fa-2x"></i> %>
