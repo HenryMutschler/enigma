@@ -4,15 +4,13 @@ class EventsController < ApplicationController
   def index
     @favourite = Favourite.new
     # if params[:query_geo] =~ /\A[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}\Z/i
-    @events = Event.all.includes(:event).joins(:event)
-                    .order('events.start_time': :desc)
 
     geocoder = if params[:query_geo].present?
-                 Geocoder.search(params[:query_geo], params: { city: 'london', countrycodes: 'gb' })
-                         .first
-               end
+      Geocoder.search(params[:query_geo], params: { city: 'london', countrycodes: 'gb' })
+              .first
+    end
 
-    @events = geocoder ? Event.near(geocoder.coordinates, 2) : Event.all
+    @events = geocoder ? Event.near(geocoder.coordinates, 2) : Event.all.order('events.start_time': :asc)
 
     return unless params[:query_event].present?
 
@@ -35,12 +33,11 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new
+    @event = current_user.events.new
   end
 
   def create
-    @event = Event.new(event_params)
-    @event.user = current_user
+    @event = current_user.events.new(event_params)
     if @event.save
       redirect_to event_path(@event), alert: 'You have created a new event!'
     else
