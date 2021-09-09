@@ -1,5 +1,15 @@
 <p>Hi <%= @user.first_name %>,</p>
 
-<p>The postcode to your mysterious dining experience is <strong><%= @event.postcode %><strong> </p>
+<p>How exciting! You will join us for one of our special <i>MYSTERIOUS</i> dining experiences.</p>
 
-<p>See ya!</p>
+<p>Even more exciting... You are only <strong>24 hours</strong> away from finally joining us.</p>
+
+<p>Therefore, as promised, here is the postcode to your mysterious dining experience: </p> 
+
+<p><strong><%= @event.postcode %></strong> </p>
+
+<p>Please make sure you are there on time. Remember your event starts at <strong><%= @event.start_time.strftime("%H:%M:%S")%></strong>
+
+<p>See ya and don't forget to keep supporting you local restaurants!</p>
+
+<p>💕</p>
