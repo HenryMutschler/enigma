@@ -1,6 +1,7 @@
 <div class="container">
   <%= simple_form_for [@booking, @review], url: booking_review_path(@booking) do |f| %>
     <%= f.input :content, as: :text, label: 'How was your experience?' %>
-    <%= f.button :submit, 'Share your Love!', class: "btn btn-primary" %>
+    <%= f.button :submit, 'SHARE YOUR LOVE!', class: "btn btn-primary" %>
+
   <% end %>
 </div>
