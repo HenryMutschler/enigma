@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
     @review.user = @booking.event.user
 
     if @review.save
-      redirect_to bookings_path
+      redirect_to review_path(@review.user)
     else
       render :show, alert: 'At least 5 letters~'
     end
