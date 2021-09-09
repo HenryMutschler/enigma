@@ -1,11 +1,11 @@
 <div class="container">
+  <h1></h1>
   <div><%= image_tag "#{current_user.picture_url}", id: "avatar-center" %>
   </div>
   <div>
-    <br>
     <%= link_to "⭐️⭐️⭐️⭐️⭐️", user_path %><br>
     <%= link_to "✎ Edit Profile", edit_user_registration_path %><br>
-    <%= link_to "⫸ Sign Out", destroy_user_session_path %><br>
+    <%= link_to "⫸ Sign Out", destroy_user_session_path, method: :delete %><br>
   </div>
   <div>
     <ul class="list">

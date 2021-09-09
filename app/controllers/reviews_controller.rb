@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   def show
-    @review = Review.find(params[:id])
+    @user = User.find(params[:id])
+    @reviews = @user.reviews.by_recently_created
   end
 
   def new
