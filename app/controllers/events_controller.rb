@@ -3,7 +3,6 @@ class EventsController < ApplicationController
 
   def index
     @favourite = Favourite.new
-
     # if params[:query_geo] =~ /\A[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}\Z/i
     geocoder = if params[:query_geo].present?
                  Geocoder.search(params[:query_geo], params: { city: 'london', countrycodes: 'gb' })
@@ -19,6 +18,7 @@ class EventsController < ApplicationController
 
     @events = @events.where(category: categories)
                      .or(@events.where(Event.arel_table[:event_name].matches(query)))
+
   end
 
   def show

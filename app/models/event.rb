@@ -32,6 +32,9 @@ class Event < ApplicationRecord
                    vegan: 23,
                    vegetarian: 24 }
 
+  scope :by_start_time, -> { order(start_time: :asc) }
+
+
   validates :postcode, presence: true
   validates :restaurant_name, presence: true
   validates :event_name, presence: true
