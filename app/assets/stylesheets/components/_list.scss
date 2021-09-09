@@ -24,15 +24,31 @@
   width: 380px;
 }
 
-// .list .list-content {
-//   flex-grow: 1;
-//   margin-left: 20px;
-//   margin-right: 20px;
-//   text-align: start;
-// }
+.list .list-content {
+  flex-grow: 1;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: start;
+  font-size: smaller;
+  color: $pink;
+}
 
 .list .list-content a:hover {
   text-decoration: none;
   font-weight: bolder;
   color: $pink;
+}
+
+.list-item-review {
+  flex-wrap: wrap;
+  flex-grow: 1;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  background:$black;
+  padding: 8px 8px;
+  border: 2px solid #3D52D5;
+  border-radius: 20px;
+  list-style-type: none;
+  font-size: 16px;
+  width: 380px;
 }
