@@ -5,7 +5,7 @@ class EventsController < ApplicationController
     @favourite = Favourite.new
     # if params[:query_geo] =~ /\A[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}\Z/i
     @events = Event.all.includes(:event).joins(:event)
-                    .order('events.start_time': :desc)
+                   .order('events.start_time': :desc)
 
     geocoder = if params[:query_geo].present?
                  Geocoder.search(params[:query_geo], params: { city: 'london', countrycodes: 'gb' })
@@ -13,7 +13,7 @@ class EventsController < ApplicationController
                end
 
     @events = geocoder ? Event.near(geocoder.coordinates, 2) : Event.all
-console
+
     return unless params[:query_event].present?
 
     query = "%#{params[:query_event]}%"
