@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'Bye bye all events, users and bookings...'
 
-Review.destroy_all
-Booking.destroy_all
 Favourite.destroy_all
+Booking.destroy_all
+Review.destroy_all
 User.destroy_all
 Event.destroy_all
 
@@ -46,8 +46,6 @@ event18 = Event.create(postcode: 'W1D 6JE', restaurant_name: 'Opium', start_time
 
 event19 = Event.create(postcode: 'SE1 1RQ', restaurant_name: 'Call Me Mr Lucky', start_time: '2021-09-12 04:00:00 -0700', end_time: '2021-09-30 07:0:00 -0700', category: 17, event_name:'Breakfast with Mr Lucky', event_descritpion: "Playful and cheeky attitude light up your day!", price: 33, image_url: 'breakfast.jpg', user_id: user2.id)
 event20 = Event.create(postcode: 'EC1A 9LH', restaurant_name: 'Oriole', start_time: '2021-09-12 12:00:00 -0700', end_time: '2021-09-30 16:0:00 -0700', category: 17, event_name:'Truly Stress-free Exotic Evening', event_descritpion: "Oasis of warmth, mystery and magic in London", price: 42, image_url: 'event-image7.jpg', user_id: user2.id)
-
-
 
 puts 'We are almost there...'
 puts 'Adding few bookings for our users...'

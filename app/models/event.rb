@@ -11,7 +11,7 @@ class Event < ApplicationRecord
                    bbq: 2,
                    british: 3,
                    chinese: 4,
-                   cooktails_bar: 5,
+                   cocktail_bar: 5,
                    modern_european: 6,
                    french: 7,
                    german: 8,
@@ -31,6 +31,9 @@ class Event < ApplicationRecord
                    turkish: 22,
                    vegan: 23,
                    vegetarian: 24 }
+
+  scope :by_start_time, -> { order(start_time: :asc) }
+
 
   validates :postcode, presence: true
   validates :restaurant_name, presence: true
