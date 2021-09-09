@@ -5,9 +5,11 @@
     </div>
 
     <%= render "search_form_two" %>
-
+    <% if params[:query_geo].present? %>
+      <h5 class="position-relative mt-3">Sorted by distance:</h5>
+    <% end %>
     <% if @events.any? %>
-      <% @events.by_start_time.each do |event| %>
+      <% @events.each do |event| %>
         <div class='entire-card' id="star-<%=event.id%>">
           <div class="card-trip">
             <%= image_tag "#{event.image_url}" %>
@@ -17,16 +19,16 @@
                 <div class="writing-card">
                   <h6><%= link_to "#{event.event_name}", event_path(event) %></h6>
                   <div class="card-trip-user">
-                      <% if event.favourites.exists?(user_id: current_user.id, event_id: event.id, id: event.favourites.ids) %>
+                    <% if event.favourites.exists?(user_id: current_user.id, event_id: event.id, id: event.favourites.ids) %>
 
-                        <%= link_to favourite_path(event_id: event.id, id: event.favourites.ids, from: "index"), method: :delete, remote: true, class:"like-btn" do %>
-                          <i class="fas fa-heart fa-2x" id="star-on" ></i>
-                        <% end %>
-                      <% else %>
-                        <%= link_to event_favourites_path(event, from: "index"), method: :post, remote: true, class:"like-btn" do %>
-                          <i class="fas fa-heart fa-2x" id="star-off" ></i>
-                        <% end %>
+                      <%= link_to favourite_path(event_id: event.id, id: event.favourites.ids, from: "index"), method: :delete, remote: true, class:"like-btn" do %>
+                        <i class="fas fa-heart fa-2x" id="star-on" ></i>
                       <% end %>
+                    <% else %>
+                      <%= link_to event_favourites_path(event, from: "index"), method: :post, remote: true, class:"like-btn" do %>
+                        <i class="fas fa-heart fa-2x" id="star-off" ></i>
+                      <% end %>
+                    <% end %>
                   </div>
                 </div>
               </div>
@@ -36,6 +38,7 @@
     <% end %>
   </div>
 </div>
+
 
 <script>
 document.querySelectorAll("#star-off").forEach((emptyStar) => {
