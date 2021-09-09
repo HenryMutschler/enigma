@@ -19,6 +19,7 @@
         <p> See their <%= link_to "#{@event.user.reviews.size} review here", review_path(@event.user)%><br> 
       <% else %>
         <p> See their <%= link_to "#{@event.user.reviews.size} reviews here", review_path(@event.user)%><br>
+      <% end %>
     <div>
       <%= link_to 'BOOK NOW', new_event_booking_path(@event), class:'btn btn-primary'%>
     </div>
