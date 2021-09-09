@@ -1,14 +1,17 @@
 <div class="container">
-  <h3>Review for <%= @review.booking.event.user.first_name %> review show page</h3>
+  <h3>Reviews for <%= @user.first_name %></h3>
 
   <ul class="list">
-      <li class="list-item">
-      <%= image_tag @review.user.picture_url, class: "avatar" %>
-        <%# <div class="list-content"> %>
-          <p><%= @review.content %></p>
-          <%= @review.user.first_name %>
-        <%# </div> %>
+    <% @reviews.each do |review| %>
+      <li class="list-item-review">
+        <div class="list-content">
+          <%= image_tag review.booking.user.picture_url, class: "avatar" %>
+          <%= review.booking.user.first_name %>
+          <%= review.created_at.strftime('%d %b %Y') %>
+        </div>
+        <p><%= review.content %></p>
       </li>
+    <% end %>
   </ul>
   <%= link_to 'Back', events_path %>
 </div>

@@ -1,21 +1,22 @@
 <div class="col-sm-12 col-bg-6 index-forms">
-      <%= form_tag events_path, method: :get do %>
-  <div class="index-forms">
-    <div>
+  <%= form_tag events_path, method: :get do %>
+    <div class="index-forms">
+      <div>
+        <%# <input class="query_event" name="query_event" type="text" value="Search by cuisine or name" /> %>
         <%= text_field_tag :query_event,
           params[:query_event],
           class: "form-control", id: "two",
           placeholder: "Cuisine or Name"%>
       </div>
-    <div>
-      <%= text_field_tag :query_geo,
-        params[:query_geo],
-        class: "form-control", id: "two",
-        placeholder: "Postcode or Location"%>
-  </div>
-</div>
-  <div class="submit-button">
-    <%= submit_tag "SURPRISE ME", class: "btn btn-primary", id: "index-button"%>
-  </div>
+      <div>
+        <%= text_field_tag :query_geo,
+          params[:query_geo],
+          class: "form-control", id: "two",
+          placeholder: "Postcode or Location"%>
+      </div>
+    </div>
+    <div class="submit-button">
+      <%= submit_tag "SURPRISE ME", class: "btn btn-primary", id: "index-button"%>
+    </div>
   <% end %>
 </div>

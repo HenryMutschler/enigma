@@ -1,19 +1,23 @@
 <div class='bookings-index'>
   <h3>Your Bookings</h3>
 
-  <ul class="list">
-    <% @bookings.each do |booking| %>
-      <% if booking.event.start_time < Time.current && booking.review.present? == true %>
-        <li class="list-item"><%= booking.event.event_name %><br><%= booking.event.start_time.strftime("%d %b %Y %I:%M %P") %>
-        <div><%= link_to 'See your review', review_path(booking.review) %></div></li>
-      <% elsif booking.event.start_time < Time.current && booking.review.present? == false %>
-        <li class="list-item"><%= booking.event.event_name %><br>
-        <%= booking.event.start_time.strftime("%d %b %Y %I:%M %P") %>
-        <div><%= link_to 'Write a review', new_booking_review_path(booking) %></div></li>
-      <% else %>
-        <li class="list-item"><%= booking.event.event_name %><br>
-        <%= booking.event.start_time.strftime("%d %b %Y %I:%M %P") %></li>
-      <% end %>
+
+  <ul class="nav nav-tabs" role="tablist">
+    <% @bookings.each_with_index do |(type, bookings), index| %>
+      <li class="nav-item">
+        <a class="nav-link<% if index == 0 %> active<% end %>" data-toggle="tab" href="#<%= type %>" role="tab" aria-controls="home" aria-selected="true"><%= type.humanize %> <span class="badge badge-light"><%= bookings.count %></span></a>
+      </li>
     <% end %>
   </ul>
+  <div class="tab-content">
+    <% @bookings.each_with_index do |(type, bookings), index| %>
+      <div class="tab-pane fade<% if index == 0 %> show active<% end %>" id="<%= type %>" role="tabpanel" aria-labelledby="home-tab">
+        <ul class="list">
+          <% bookings.each do |booking| %>
+            <%= render booking %>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
 </div>
