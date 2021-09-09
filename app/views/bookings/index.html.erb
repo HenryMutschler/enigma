@@ -13,7 +13,7 @@
     <% @bookings.each_with_index do |(type, bookings), index| %>
       <div class="tab-pane fade<% if index == 0 %> show active<% end %>" id="<%= type %>" role="tabpanel" aria-labelledby="home-tab">
         <ul class="list">
-          <% bookings.each do |booking| %>
+          <% bookings.reverse.each do |booking| %>
             <%= render booking %>
           <% end %>
         </ul>
