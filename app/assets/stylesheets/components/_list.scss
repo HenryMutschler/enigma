@@ -16,7 +16,7 @@
   align-items: center;
   margin-bottom: 8px;
   background:$black;
-  padding: 16px 4px;
+  padding: 16px 10px;
   border: 2px solid #3D52D5;
   border-radius: 20px;
   list-style-type: none;
@@ -26,11 +26,13 @@
 
 .list .list-content {
   flex-grow: 1;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 0px 20px 8px 20px;
   text-align: start;
   font-size: smaller;
   color: $pink;
+  border-bottom: 1px solid $pink;
+  padding: 0px 0px 8px 0px;
+
 }
 
 .list .list-content a:hover {

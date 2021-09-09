@@ -13,10 +13,12 @@
     <ul class="list">
       <% current_user.reviews.by_recently_created.each do |review| %>
         <li class="list-item">
-        <div class="list-content"><%= review.booking.event.event_name %><br>
-          <%= review.booking.event.start_time.strftime('%d %b %Y') %> |
-          <%= review.booking.event.user.first_name %></div>
-        <p>_________________________</p>
+        <div class="list-content">
+          <%= image_tag "#{review.booking.user.picture_url}", class:"avatar" %>
+          <%= review.booking.user.first_name %><br>
+          <%= review.booking.event.event_name %><br>
+          <%= review.booking.event.start_time.strftime('%d %b %Y') %></div>
+
         <%= review.content %></li>
       <% end %>
     </ul>
