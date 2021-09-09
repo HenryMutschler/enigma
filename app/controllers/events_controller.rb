@@ -13,7 +13,7 @@ class EventsController < ApplicationController
                end
 
     @events = geocoder ? Event.near(geocoder.coordinates, 2) : Event.all
-console
+
     return unless params[:query_event].present?
 
     query = "%#{params[:query_event]}%"
@@ -21,7 +21,6 @@ console
 
     @events = @events.where(category: categories)
                      .or(@events.where(Event.arel_table[:event_name].matches(query)))
-
   end
 
   def show

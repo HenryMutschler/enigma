@@ -5,6 +5,11 @@
   <div>
     <%= link_to "⭐️⭐️⭐️⭐️⭐️", user_path %><br>
     <%= link_to "✎ Edit Profile", edit_user_registration_path %><br>
+    <% if current_user.organizer == true %>
+      <%= link_to "🀣 Create an event", "#" %><br>
+    <% else %>
+      <%= link_to "☻ Become an organizer", "#" %><br>
+    <% end %>
     <%= link_to "⫸ Sign Out", destroy_user_session_path, method: :delete %><br>
   </div>
   <br>
