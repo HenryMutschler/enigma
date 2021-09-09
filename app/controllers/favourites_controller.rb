@@ -4,11 +4,11 @@ class FavouritesController < ApplicationController
     @favourite = Favourite.create(event: @event, user: current_user)
     # @favourite.user = @user
     # redirect_back(fallback_location: root_path, anchor:"star-#{@event.id}")
-    if params["from"] == "index"
-    redirect_to events_path(anchor:"star-#{@event.id}")
-    else
-      redirect_to favourites_path(anchor:"star-#{@event.id}")
-    end
+    # if params["from"] == "index"
+    #   redirect_to events_path()
+    # else
+    #   redirect_to favourites_path()
+    # end
   end
 
   def index
@@ -21,9 +21,9 @@ class FavouritesController < ApplicationController
     @favourite.destroy
     # redirect_back(fallback_location: root_path, anchor:"star-#{@event.id}")
     if params["from"] == "index"
-      redirect_to events_path(anchor:"star-#{@event.id}")
-      else
-        redirect_to favourites_path(anchor:"star-#{@event.id}")
+      # redirect_to events_path(anchor:"star-#{@event.id}")
+    else
+        redirect_to favourites_path
     end
   end
 
