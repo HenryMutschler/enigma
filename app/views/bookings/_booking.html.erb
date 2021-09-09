@@ -1,6 +1,6 @@
 <% if booking.event.start_time < Time.current && booking.review.present? %>
   <li class="list-item"><%= booking.event.event_name %><br><%= booking.event.start_time.strftime("%d %b %Y %I:%M %P") %>
-  <div><%= link_to 'See your review', review_path(booking.review) %></div></li>
+  <div><%= link_to 'See your review', booking_review_path(booking) %></div></li>
 <% elsif booking.event.start_time < Time.current && !booking.review.present? %>
   <li class="list-item"><%= booking.event.event_name %><br>
   <%= booking.event.start_time.strftime("%d %b %Y %I:%M %P") %>

@@ -1,0 +1,13 @@
+<div class="container">
+  <ul class="list">
+      <li class="list-item-review">
+        <div class="list-content">
+          <%= image_tag @review.booking.user.picture_url, class: "avatar" %>
+          <%= @review.booking.user.first_name %>
+          <%= @review.created_at.strftime('%d %b %Y') %>
+        </div>
+        <p><%= @review.content %></p>
+      </li>
+  </ul>
+  <%= link_to 'Back', events_path %>
+</div>

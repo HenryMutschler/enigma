@@ -1,7 +1,12 @@
 class ReviewsController < ApplicationController
   def show
-    @user = User.find(params[:id])
-    @reviews = @user.reviews.by_recently_created
+    if params[:booking_id]
+      @review = current_user.bookings.find(params[:booking_id]).review
+      render :show_single
+    else
+      @user = User.find(params[:id])
+      @reviews = @user.reviews.by_recently_created
+    end
   end
 
   def new
