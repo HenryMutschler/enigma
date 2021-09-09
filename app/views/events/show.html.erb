@@ -10,12 +10,11 @@
     <p>£ <%= @event.price %></p>
 
     <p>This is an event organized by <%= @event.user.first_name%><br>
-
     <p> See their <%= link_to "#{@event.user.reviews.size} #{@event.user.reviews.size == 1 ? "review" : "reviews"}", review_path(@event.user)%> here<br></p>
-    <%= link_to 'Book Now', new_event_booking_path(@event), class:'btn btn-primary'%>
-
+    <div>
+      <%= link_to 'BOOK NOW', new_event_booking_path(@event), class:'btn btn-primary'%>
+    </div>
   </div>
-
   <br>
   <div id="map"
     style="width: 100%; height: 320px;"
