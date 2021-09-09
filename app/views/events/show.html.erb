@@ -10,10 +10,10 @@
     <p><%= @event.event_descritpion.truncate(120, separator: ' ') %></p>
     <p>£ <%= @event.price %></p>
 
-    <p>This is an event organized by <%= link_to "#{@event.user.first_name}", review_path(@event.user)%><br>
+    <p>This is an event organized by <%= @event.user.first_name%><br>
 
         <%#= image_tag "#{@event.user.picture_url}" %>
-      <%= pluralize @event.user.reviews.size, "reviews"%></p>
+        <p> See their <%= link_to "#{@event.user.reviews.size} reviews here", review_path(@event.user)%><br>
 
     <%= link_to 'Book Now', new_event_booking_path(@event), class:'btn btn-primary'%>
   </div>
