@@ -6,11 +6,23 @@
 <div class="container">
   <div class="event-context">
 
+
+    <div class="btn-back"><%= link_to events_path do %>
+      <i class="far fa-chevron-left fa-2x"></i>
+    <% end %></div>
+    <h2><%= @event.event_name %></h2>
+    <h2>---------</h2>
+    <p><%= @event.event_descritpion %></p>
+    <p>£ <%= @event.price %></p>
+
+    <h5>This is an event organized by <%= link_to "#{@event.user.first_name}", review_path(@event.user)%>
+
     <h4><%= @event.event_name.truncate(35, separator: ' ') %></h4>
     <p><%= @event.event_descritpion.truncate(120, separator: ' ') %></p>
     <p>£ <%= @event.price %></p>
 
     <p>This is an event organized by <%= @event.user.first_name%><br>
+
 
         <%#= image_tag "#{@event.user.picture_url}" %>
         <p> See their <%= link_to "#{@event.user.reviews.size} reviews here", review_path(@event.user)%><br>
