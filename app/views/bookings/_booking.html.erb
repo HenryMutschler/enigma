@@ -6,6 +6,8 @@
   <%= booking.event.start_time.strftime("%d %b %Y %I:%M %P") %>
   <div><%= link_to 'Write a review', new_booking_review_path(booking) %></div></li>
 <% else %>
-  <li class="list-item"><%= booking.event.event_name %><br>
-  <%= booking.event.start_time.strftime("%d %b %Y %I:%M %P") %></li>
+  <li class="list-item">
+    <%= link_to "+", booking, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-delete" %>
+    <%= booking.event.event_name %><br>
+    <%= booking.event.start_time.strftime("%d %b %Y %I:%M %P") %></li>
 <% end %>
