@@ -5,6 +5,7 @@
     </div>
 
     <%= render "search_form_two" %>
+
     <% if params[:query_geo].present? %>
       <h5 class="position-relative mt-3">Sorted by distance:</h5>
     <% end %>
@@ -18,6 +19,9 @@
                 <h4 class="card-trip-date"><%= event.start_time.strftime("%d %b %Y %I:%M %P") %></h4>
                 <div class="writing-card">
                   <h6><%= link_to "#{event.event_name}", event_path(event) %></h6>
+                  <% if event.user == current_user %>
+                    <div id="btn-edit-event"><%= link_to "✎ Edit", edit_event_path(event) %></div>
+                  <% end %>
                   <div class="card-trip-user">
                     <% if event.favourites.exists?(user_id: current_user.id, event_id: event.id, id: event.favourites.ids) %>
 
