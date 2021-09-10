@@ -1,0 +1,16 @@
+<%= simple_form_for @event do |f| %>
+    <%= f.input :event_name, placeholder: 'Your cool event name', error: 'Event name is mandatory, please specify one', input_html: { maxlength: 50 } %>
+    <%= f.input :event_descritpion, placeholder: 'Tell us a little bit more about it', input_html: { maxlength: 280 } %>
+    <%= f.input :postcode, placeholder: 'Soho' %>
+    <%= f.input :restaurant_name, placeholder: 'Venue Name' %>
+    <%= f.input :price, as: :string, placeholder: '£££' , input_html: { maxlength: 3 } %>
+    <%= f.input :image_url, placeholder: 'Give a nice image for your event!' %>
+    <%= f.input :category, collection: Event.categories.keys %>
+    <%= f.input :start_time, as: :datetime, start_year: Date.today.year,
+                              end_year: Date.today.year + 1,
+                              order: [:day, :month, :year] %>
+    <%= f.input :end_time, as: :datetime, start_year: Date.today.year,
+                              end_year: Date.today.year + 1,
+                              order: [:day, :month, :year] %>
+    <%= f.button :submit %>
+  <% end %>
